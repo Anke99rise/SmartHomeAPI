@@ -1,0 +1,164 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This is list of api endpoints for Fireskins API.",
+      "version": "1.0.0",
+      "title": "Fireskins.gg"
+    },
+    "host": "localhost:3001",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "auth",
+        "description": "Authentication system."
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/auth/signup": {
+        "post": {
+          "tags": [
+            "auth"
+          ],
+          "summary": "New user sign up.",
+          "description": "",
+          "operationId": "signUp",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+                "in": "body",
+                "name": "User",
+                "description": "User object for sign up.",
+                "schema": {
+                    "type": "object",
+                    "required": [
+                        "email",
+                        "password",
+                        "password_repeat"
+                    ],
+                    "properties": {
+                        "email": {
+                            "type": "string"
+                        },
+                        "password": {
+                            "type": "string"
+                        },
+                        "password_repeat": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "400": {
+                "description": "Bad request"
+            },
+            "500": {
+                "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/auth/signin": {
+        "post": {
+          "tags": [
+            "auth"
+          ],
+          "summary": "Sign in user.",
+          "description": "",
+          "operationId": "signIn",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+                "in": "body",
+                "name": "User",
+                "description": "User object for sign in.",
+                "schema": {
+                    "type": "object",
+                    "required": [
+                        "email",
+                        "password"
+                    ],
+                    "properties": {
+                        "email": {
+                            "type": "string"
+                        },
+                        "password": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "400": {
+                "description": "Bad request"
+            },
+            "500": {
+                "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/auth/verify": {
+        "post": {
+          "tags": [
+            "auth"
+          ],
+          "summary": "Verify JWT Token.",
+          "description": "",
+          "operationId": "verifyToken",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "400": {
+                "description": "Bad request"
+            },
+            "401": {
+                "description": "Unauthorized"
+            }
+          },
+          "security": [
+              {"token": []}
+          ]
+        }
+      }
+    },
+    "securityDefinitions": {
+      "token": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "in": "header"
+      }
+    },
+    "definitions": {
+    }
+  }

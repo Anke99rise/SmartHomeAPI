@@ -1,0 +1,23 @@
+{
+    "development": {
+      "username": "root",
+      "password": null,
+      "database": "smart_api_database",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "server": {
+      "username": "smart_api_user",
+      "password": "WuvwknWnACHrqV2L",
+      "database": "smart_api_database",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "root",
+      "password": null,
+      "database": "smart_api_database",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
+  }
